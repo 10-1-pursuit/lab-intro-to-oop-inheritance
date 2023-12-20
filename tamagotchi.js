@@ -29,36 +29,44 @@ class Tamagotchi{
         }
     }
     medicate(){
-        if(!this.sick){
+        if(this.sick){
             this.full = 9;
-            this.energy -=3
+            this.energy -=3;
+            this.sick = false
         }else{
             console.log("Refusal to take medicine")
             this.energy -=1
         }
     }
     play(){
-        
-        if(this.sick){
-            console.log("UGH! I am sick Master! Can't play right now!")
-            this.mood -=1;
-            this.energy -=1;
-        }
-        if(this.mood > 9){
-            this.energy -= 2;
-            this.full -= 1
-        }
-        if(this.energy <= 3){
-            console.log("I am too tired to play");
-            this.energy =1
-        }else{
+        console.log("running play")
+       
+       
+        if(!this.sick && this.energy > 3 && this.mood < 9 ){
             
             this.mood +=2;
             this.energy -=1;
             this.full -=1;
         }
-    }
+        if(this.sick){
+            console.log("UGH! I am sick Master! Can't play right now!")
+            this.mood -=1;
+            this.energy -=1;
+            // this.sick = true
+        }
+        if(this.mood > 9 ){
+             this.energy -= 2;
+             this.full -= 1
+         }
 
+       if(this.energy <= 3){
+             console.log("I am too tired to play");
+             this.energy -=1
+         }
+       
+}
+        
+    
     sleep(){
         this.energy += 4;
         this.full -=3;
@@ -68,16 +76,18 @@ class Tamagotchi{
             this.mood -=2;
             this.full -=1;
             this.energy -=1;
-        }
+        }else{
             this.mood -= 3;
             this.full -= 2;
-            this.energy -= 2;
+            this.energy -=2;
+        }
+
         }
         badGuardian(){
         if(this.energy <= 0 || this.mood <= 0 || this.full <= 0){
-            this.rehomed = !this.rehomed
+            this.rehomed = true
         }
-        if(rehomed){
+        if(this.rehomed){
             console.log(`${this.name} has been rehomed!`)
         }
         }
@@ -87,5 +97,13 @@ class Tamagotchi{
 const gio = new Tamagotchi("Gio")
 
 console.log(gio)
+gio.badGuardian()
+gio.timePasses();
+gio.sleep();
+gio.play();
+gio.medicate();
+gio.eat()
+gio.status()
+gio.greet()
 // Do not edit below this line
 module.exports = Tamagotchi;
