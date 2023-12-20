@@ -51,8 +51,9 @@ class Tamagotchi {
     greet() {
         console.log(`Hello, I'm ${this.name}!`);
     }
+
     // shoutout x for ternary
-    stats() {
+    status() {
         console.log(`********************
 My mood is: ${this.mood}
 I am this full: ${this.full}
@@ -61,23 +62,61 @@ ${(this.sick)? "I am sick" : "I am not sick"}
 ********************
 `)
     }
+
     eat() {
-        if (this.full >= 10) {
-            this.full += 2;
-            this.energy -= 1;
+        this.full += 2;
+        this.energy --;
+        if (this.full > 10) {
             this.sick = true;
-        } else {
-            this.full += 2;
-            this.energy -= 1;
         }
         console.log(`Fullness:${this.full}, Energy:${this.energy}, Is sick:${this.sick}`)
+        }
+    
+    medicate() {
+        if (this.sick === true) {
+            this.full = 9;
+            this.energy -= 3;
+            this.sick = false;
+            console.log("*Medicate*")
+            console.log(`Fullness:${this.full}, Energy:${this.energy}, Is sick:${this.sick}`)  
+        } else {
+            console.log ("Refusal to take medicine");
+            this.energy --;
+            console.log("*Medicate*")
+            console.log(`Energy:${this.energy}, Is sick:${this.sick}`)
+        }
+    }
+
+    play() {
+        if (this.sick === true) {
+            this.mood --;
+            this.energy --;
+            console.log("*Play*")
+            console.log(`Mood:${this.mood}, Energy:${this.energy}`)
+        } else if (this.mood >= 8) {
+            this.energy -= 2;
+            this.full --;
+        } else if (this.energy <= 3) {
+            console.log("*Play*")
+            console.log("I am too tired to play");
+            console.log(`Energy:${this.energy}`)
+            this.energy --;
+        } else {
+        this.mood += 2;
+        this.energy --;
+        this.full --;
+        console.log("*Play*")
+        console.log(`Mood:${this.mood}, Energy:${this.energy}, Fullness:${this.full}`)
+        }
     }
 }
 
 const tom = new Tamagotchi("tom-tom");
 tom.greet();
-tom.stats();
+tom.status();
 tom.eat();
 tom.eat();
+tom.medicate();
+tom.play();
 // Do not edit below this line
 module.exports = Tamagotchi;
