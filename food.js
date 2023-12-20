@@ -18,9 +18,15 @@ class Food{
     }
     aDayPasses(){
         this.daysToSpoil--
+        if(this.daysToSpoil <= 0) this.fresh = false
         this.isFresh()
     }
 }
+const ham = new Food("Ham", 1)
+ham.prepare()
+ham.isFresh()
+ham.aDayPasses()
+console.log(ham)
 
 // Do not edit below this line
 module.exports = Food;
