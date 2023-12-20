@@ -66,14 +66,13 @@ ${(this.sick)? "I am sick" : "I am not sick"}
     eat() {
         this.full += 2;
         this.energy --;
-        if (this.full > 10) {
+        if (this.full > 10)
             this.sick = true;
-        }
         console.log(`Fullness:${this.full}, Energy:${this.energy}, Is sick:${this.sick}`)
         }
     
     medicate() {
-        if (this.sick === true) {
+        if (this.sick) {
             this.full = 9;
             this.energy -= 3;
             this.sick = false;
@@ -88,11 +87,11 @@ ${(this.sick)? "I am sick" : "I am not sick"}
     }
 
     play() {
-        if (this.sick === true) {
+        if (this.sick) {
             this.mood --;
             this.energy --;
             console.log("*Play*")
-            console.log(`Mood:${this.mood}, Energy:${this.energy}`)
+            console.log(`Mood:${this.mood}, Energy:${this.energy} Is sick:${this.sick}`)
         } else if (this.mood >= 8) {
             this.energy -= 2;
             this.full --;
@@ -106,7 +105,38 @@ ${(this.sick)? "I am sick" : "I am not sick"}
         this.energy --;
         this.full --;
         console.log("*Play*")
-        console.log(`Mood:${this.mood}, Energy:${this.energy}, Fullness:${this.full}`)
+        console.log(`Mood:${this.mood}, Energy:${this.energy}, Fullness:${this.full} Is sick:${this.sick}`)
+        }
+    }
+
+    sleep() {
+        this.energy += 4;
+        this.full -= 3;
+        console.log("*Sleep*")
+        console.log(`Energy:${this.energy}, Fullness:${this.full} Is sick:${this.sick}`)
+    }
+
+    timePasses() {
+        if (this.sick) {
+            this.mood -= 3;
+            this.full -= 2;
+            this.energy -= 2;
+            console.log("*Time Passes*")
+            console.log(`Mood:${this.mood}, Energy:${this.energy}, Fullness:${this.full} Is sick:${this.sick}`)
+        } else {
+            this.mood -= 2;
+            this.full --;
+            this.energy --;
+            console.log("*Time Passes*")
+            console.log(`Mood:${this.mood}, Energy:${this.energy}, Fullness:${this.full} Is sick:${this.sick}`)
+        }
+    }
+    badGuardian() {
+        if (this.energy <= 0 || this.mood <= 0 || this.full <= 0) {
+            this.rehomed = true;
+            console.log('Tamagotchi has been rehomed');
+        } else {
+            console.log("You're not a bad guardian!")
         }
     }
 }
@@ -118,5 +148,8 @@ tom.eat();
 tom.eat();
 tom.medicate();
 tom.play();
+tom.sleep();
+tom.timePasses();
+tom.badGuardian();
 // Do not edit below this line
 module.exports = Tamagotchi;
