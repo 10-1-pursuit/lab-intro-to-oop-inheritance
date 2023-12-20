@@ -64,19 +64,19 @@ class Tamagotchi {
     this.full = this.full + 2  // - eat: increases fullness by two, 
     this.energy--; // - eat: increases fullness by two, decreases energy by 1,
     // if eat method makes fullness more than 10, tamagotchi becomes sick (sick = true)*/
-    if(this.full > 9) {
+    if(this.full > 10) {
       this.sick = true;
     }
   };
   //   - medicate:
   medicate() {
     //   - if tamagotchi is sick - set full to 9 - decrease energy by 3  
-    if(this.sick) {
+    if(this.sick === true) {
       //this.timePasses //FROM TEST If tamagotchi is not sick, timePasses...
       this.full = 9;
       console.log(this.full)
-      this.energy -= 3;
-    } else {
+      this.energy = this.energy - 3;
+    } else if (this.sick === false){
       //   - if tamagotchi is not sick
       //       - reduce energy by 1
       console.log("refusal to take medicine");
@@ -150,9 +150,9 @@ class Tamagotchi {
 
 
 // Create class below
-const tommy = new Tamagotchi("xaver", 1, 13, 2);
+const tommy = new Tamagotchi("xaver");
 console.log(tommy)
-tommy.eat()
+
 console.log(tommy)
 //console.log(tommy.eat(), tommy.eat(), tommy);
 // Do not edit below this line
