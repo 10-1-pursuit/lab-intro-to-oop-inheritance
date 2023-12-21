@@ -18,12 +18,23 @@ class Tamagotchi {
   greet() {
     console.log(`Hello my name is ${this.name}`);
   }
+  status() {
+    console.log(`
+    *******************
+    My mood is: ${this.mood}
+    I am this full: ${this.full}
+    My energy is at: ${this.energy}
+    I am not sick
+    *******************`);
+  }
 }
 
 const digitalPet = new Tamagotchi("Rex");
 // console.log(digitalPet)
 
-digitalPet.greet();
+// digitalPet.greet();
+
+digitalPet.status()
 
 // Do not edit below this line
 module.exports = Tamagotchi;
