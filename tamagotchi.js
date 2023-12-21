@@ -2,10 +2,10 @@
 class Tamagotchi {
   constructor(
     name,
+    sick = false,
     energy = 9,
     full = 8,
-    mood = 6,
-    sick = false,
+    mood = 10,
     rehomed = false
   ) {
     this.name = name;
@@ -34,13 +34,33 @@ class Tamagotchi {
       this.sick = true;
     }
   }
-  medicate(){
-    if(this.sick === true){
-        this.full = 9
-        this.energy -= 3
-    } else{
-        console.log("refusal to take medicine")
-        this.energy--
+  medicate() {
+    if (this.sick === true) {
+      this.full = 9;
+      this.energy -= 3;
+    } else {
+      console.log("refusal to take medicine");
+      this.energy--;
+    }
+  }
+  play() {
+    if (this.sick === true) {
+      this.mood--;
+      this.energy--;
+    } else {
+      this.mood += 2;
+      this.energy--;
+      this.full--;
+    }
+
+    if (this.mood > 9) {
+      this.energy -= 2;
+      this.full--;
+    }
+
+    if (this.energy <= 3) {
+      console.log("I'm too tired to play");
+      this.energy--;
     }
   }
 }
@@ -59,7 +79,12 @@ console.log(digitalPet);
 
 // digitalPet.status();
 
-digitalPet.medicate()
+digitalPet.medicate();
+console.log("After Medicating");
+console.log(digitalPet);
+
+digitalPet.play();
+console.log("After Playing");
 console.log(digitalPet);
 
 // Do not edit below this line
