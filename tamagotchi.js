@@ -64,6 +64,40 @@ class Tamagotchi {
         }
       }
     }
-   
+    const kai = new Tamagotchi("Kai", 100, 90, 100);
+    console.log(kai);
+    //console.log(" ");
+    kai.greet();
+    //console.log(" ");
+    console.log(kai);
+    console.log(" ");
+    kai.status();
+    //console.log(" ");
+    console.log(kai);
+    console.log(" ");
+    kai.eat();
+    //console.log(" ");
+    console.log(kai);
+    console.log(" ");
+    kai.medicate();
+    //console.log(" ");
+    console.log(kai);
+    console.log(" ");
+    kai.play();
+    //console.log(" ");
+    console.log(kai);
+    console.log(" ");
+    kai.sleep();
+    //console.log(" ");
+    console.log(kai);
+    console.log(" ");
+    kai.timePasses();
+    //console.log(" ");
+    console.log(kai);
+    console.log(" ");
+    kai.badGuardian();
+    //console.log(" ");
+    console.log(kai);
+    console.log(" ");
 // Do not edit below this line
 module.exports = Tamagotchi;
