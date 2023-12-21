@@ -76,6 +76,7 @@ class Tamagotchi {
       this.full = 9;
       console.log(this.full)
       this.energy = this.energy - 3;
+      this.sick = false
     } else if (this.sick === false){
       //   - if tamagotchi is not sick
       //       - reduce energy by 1
@@ -152,7 +153,7 @@ class Tamagotchi {
 // Create class below
 const tommy = new Tamagotchi("xaver");
 console.log(tommy)
-
+tommy.eat()
 console.log(tommy)
 //console.log(tommy.eat(), tommy.eat(), tommy);
 // Do not edit below this line
