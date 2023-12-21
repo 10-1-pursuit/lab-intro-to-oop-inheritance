@@ -33,6 +33,43 @@ class Food {
     }
 }
 
+
+
+class BadFood extends Food {
+    constructor(name) {
+        // Constructor method for BadFood, inheriting from the Food class.
+        super(name, 20); // Calls the constructor of the parent class (Food) with specific parameters.
+        this.weapons = [
+            { hitPoints: 3 },
+            { hitPoints: 4 },
+            { hitPoints: 5 }
+        ];
+    }
+
+    prepare() {
+        // Method that prepares for a fight, taunting the opponent.
+        console.log(`I am ${this.name} and you are just a passing trend!`);
+    }
+
+    fight(otherFood) {
+        // Method simulating a fight between BadFood instances.
+        const randomWeapon = this.weapons[Math.floor(Math.random() * this.weapons.length)];
+        const damage = randomWeapon.hitPoints;
+        
+        // Decrease the daysToSpoil property of the opponent BadFood.
+        otherFood.daysToSpoil -= damage;
+        // Log a message indicating the outcome of the fight.
+        console.log(`${this.name} is down ${otherFood.daysToSpoil}, but I am still up ${this.daysToSpoil}!`);
+    }
+}
+
+// Testing BadFood Class
+const pizza = new BadFood("Pizza");
+const donut = new BadFood("Donut");
+//Output for the pizza and donut
+pizza.prepare(); // I am Pizza and you are just a passing trend!
+donut.fight(pizza); // Pizza is down (new value), but I am still up (new value)
+
 // Test the class food of course
 const eggTart = new Food('Egg Tart', 3)
 // output of the eggtarts

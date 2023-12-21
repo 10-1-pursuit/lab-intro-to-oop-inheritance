@@ -82,34 +82,6 @@ class Tamagotchi{
         }
     }
 }
-class BadFood extends Food {
-    constructor(name) {
-        // Constructor method for BadFood, inheriting from the Food class.
-        super(name, 20); // Calls the constructor of the parent class (Food) with specific parameters.
-        this.weapons = [
-            { hitPoints: 3 },
-            { hitPoints: 4 },
-            { hitPoints: 5 }
-        ];
-    }
-
-    prepare() {
-        // Method that prepares for a fight, taunting the opponent.
-        console.log(`I am ${this.name} and you are just a passing trend!`);
-    }
-
-    fight(otherFood) {
-        // Method simulating a fight between BadFood instances.
-        const randomWeapon = this.weapons[Math.floor(Math.random() * this.weapons.length)];
-        const damage = randomWeapon.hitPoints;
-        
-        // Decrease the daysToSpoil property of the opponent BadFood.
-        otherFood.daysToSpoil -= damage;
-        // Log a message indicating the outcome of the fight.
-        console.log(`${this.name} is down ${otherFood.daysToSpoil}, but I am still up ${this.daysToSpoil}!`);
-    }
-}
-
 
 // Do not edit below this line
 module.exports = Tamagotchi;
