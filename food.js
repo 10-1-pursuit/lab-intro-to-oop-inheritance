@@ -48,6 +48,9 @@ class BadFood extends Food {
     target.daysToSpoil = target.daysToSpoil - this.weapons[fightMethod].hp
    console.log( `${target.name} is down ${target.daysToSpoil} , but I am still up ${this.daysToSpoil} !`)
   }
+  heal(){
+
+  }
 }
 
 
@@ -60,4 +63,4 @@ orange.prepare()
 pear.fight(orange)
 
 // Do not edit below this line
-module.exports = Food;
+module.exports = {Food, BadFood};

@@ -1,11 +1,16 @@
 const Tamagotchi = require("../tamagotchi.js");
-const Food = require("../food.js");
+const { Food, BadFood } = require("../food.js");
+
 
 let banana, fizz;
+let pear, orange;
 
 beforeAll(() => {
   banana = new Food("Banana", 3);
   fizz = new Tamagotchi("Fizz");
+  pear = new BadFood("Pear", 10, true);
+  orange = new BadFood("orange");
+
 });
 
 describe("Food class", () => {
@@ -298,3 +303,45 @@ describe("Tamagotchi Class", () => {
     expect(fizz.rehomed).toBe(true);
   });
 });
+
+describe("BadFood class", () => {
+  test("Can call new on BadFood", () => {
+    const badApple = new BadFood("BadApple", 5);
+    expect(badApple).toBeTruthy();
+  });
+
+  test("BadFood extends Food", () => {
+    expect(pear instanceof BadFood).toBe(true);
+    expect(pear instanceof Food).toBe(true);
+  });
+
+  test("BadFood has weapons property", () => {
+    expect(pear.weapons).toBeTruthy();
+    expect(pear.weapons).toBeInstanceOf(Array);
+  });
+
+  test("BadFood prepare method overrides Food's prepare method", () => {
+    console.log = jest.fn();
+    pear.prepare();
+    expect(console.log).toHaveBeenCalledWith("I am Pear and my wins outweigh my losses!");
+  });
+
+  test("BadFood has fight method", () => {
+    expect(typeof pear.fight).toBe("function");
+    expect(pear.fight).toBeTruthy();
+  });
+
+  test("fight method reduces target's daysToSpoil based on weapon's hp", () => {
+    const target = new Food("Target", 5);
+    pear.fight(target);
+    expect(target.daysToSpoil).toBeLessThan(5); // Assuming some damage is done
+  });
+
+  test("fight method logs the result of the fight", () => {
+    const target = new Food("Target", 5);
+    console.log = jest.fn();
+    pear.fight(target);
+    expect(console.log).toHaveBeenCalledWith(expect.stringContaining("is down"));
+    expect(console.log).toHaveBeenCalledWith(expect.stringContaining("but I am still up"));
+  })
+})
