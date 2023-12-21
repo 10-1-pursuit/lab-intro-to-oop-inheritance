@@ -22,5 +22,9 @@
   "homepage": "https://github.com/joinpursuit/oop-fruits-pets-lab-solution#readme",
   "dependencies": {
     "jest": "^27.5.1"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {}
 }
