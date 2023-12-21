@@ -78,14 +78,20 @@ class Tamagotchi{
     }
 }
 const bill = new Tamagotchi("bill")
-bill.greet()
-bill.status()
-bill.eat()
-bill.medicate()
-bill.play()
-bill.sleep()
-bill.timePasses()
-bill.badGuardian()
+// console.log(bill)
+// bill.greet()
+// bill.status()
+// bill.eat()
+// console.log(bill)
+// bill.medicate()
+// console.log(bill)
+// bill.play()
+// console.log(bill)
+// bill.sleep()
+// console.log(bill)
+// bill.timePasses()
+// console.log(bill)
+// bill.badGuardian()
 
 // Do not edit below this line
 module.exports = Tamagotchi;
