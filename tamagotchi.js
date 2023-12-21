@@ -14,7 +14,10 @@ class Tamagotchi{
     }
 
     status(){
-        
+        console.log(`My mood is: ${this.mood}
+                     I am thuis full: ${this.full}
+                     My energy is: ${this.energy}
+                     I am not sick `)
     }
 }
 // Do not edit below this line
