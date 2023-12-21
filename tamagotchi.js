@@ -24,17 +24,29 @@ class Tamagotchi {
     My mood is: ${this.mood}
     I am this full: ${this.full}
     My energy is at: ${this.energy}
-    I am not sick
+    ${this.sick === false ? "I am not sick" : "I am sick :("}
     *******************`);
+  }
+  eat() {
+    this.full += 2;
+    this.energy--;
+    if (this.full > 10) {
+      this.sick = true;
+    }
   }
 }
 
 const digitalPet = new Tamagotchi("Rex");
-// console.log(digitalPet)
+console.log(digitalPet);
 
 // digitalPet.greet();
 
-digitalPet.status()
+// digitalPet.status()
+
+digitalPet.eat();
+console.log(digitalPet);
+
+digitalPet.status();
 
 // Do not edit below this line
 module.exports = Tamagotchi;
