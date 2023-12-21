@@ -9,21 +9,23 @@ class Food {
         console.log(`${this.name} is being prepared `)
     }
     isFresh() {
-        if (!fresh || daysToSpoil >= 3) {
+        if (!this.fresh || this.daysToSpoil >= 3) {
             console.log(`There are 3 days left before ${this.name} spoils.`)
         } else {
             console.log(`${this.name} has spoiled.`)
         }
     }
 
-    aDayPasses(foodItem) {
+    aDayPasses() {
         this.daysToSpoil -= 1
-        foodItem.isFresh()
+        this.isFresh()
     }
 }
 
 const foodItem1 = new Food("yogurt", 5, true)
-
+console.log(foodItem1.prepare())
+console.log(foodItem1.aDayPasses())
+console.log(foodItem1.isFresh())
 
 
 
