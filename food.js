@@ -21,11 +21,11 @@ class Food {
 
 
 const apple = new Food('apple', 3)
-apple.isFresh()
+// apple.isFresh()
 // There are 3 days left before apple spoils.
-apple.aDayPasses()
+// apple.aDayPasses()
 // There are 2 days left before apple spoils.
-apple.prepare()
+// apple.prepare()
 // apple is being prepared
 
 // Do not edit below this line
