@@ -30,37 +30,43 @@ const apple = new Food("apple", 3);
 // apple is being prepared
 
 class BadFood extends Food {
-  constructor(name, daysToSpoil = 20, fresh=true) {
+  constructor(name, daysToSpoil = 20, fresh = true) {
     super(name, daysToSpoil, fresh);
     this.weapons = [
-        {name:'pebble', hp:3},
-        {name: 'saber', hp:4},
-        {name: 'ray', hp:5}]
+      { name: "pebble", hp: 3 },
+      { name: "saber", hp: 4 },
+      { name: "ray", hp: 5 },
+    ];
   }
-  isFresh(){
-    super.isFresh()
+  isFresh() {
+    super.isFresh();
   }
-  prepare(){
-    console.log(`I am ${this.name} and my wins outweigh my losses!`)
+  prepare() {
+    console.log(`I am ${this.name} and my wins outweigh my losses!`);
   }
   fight(target) {
-    const fightMethod = Math.floor(Math.random() * 3)
-    target.daysToSpoil = target.daysToSpoil - this.weapons[fightMethod].hp
-   console.log( `${target.name} is down ${target.daysToSpoil} , but I am still up ${this.daysToSpoil} !`)
+    const fightMethod = Math.floor(Math.random() * 3);
+    target.daysToSpoil = target.daysToSpoil - this.weapons[fightMethod].hp;
+    console.log(
+      `${target.name} is down ${target.daysToSpoil} , but I am still up ${this.daysToSpoil} !`
+    );
   }
-  heal(){
+  heal(amount) {
+    this.daysToSpoil += amount;
+    console.log(`${this.name} has healed by ${amount}`)
+  }
+  block(){
 
   }
 }
 
-
-const pear = new BadFood('pear')
-const orange = new BadFood('orange')
+const pear = new BadFood("pear");
+const orange = new BadFood("orange");
 // pear.isFresh()
 // pear.prepare()
-orange.fight(pear)
-orange.prepare()
-pear.fight(orange)
-
+orange.fight(pear);
+orange.prepare();
+pear.fight(orange);
+orange.heal(3)
 // Do not edit below this line
-module.exports = {Food, BadFood};
+module.exports = { Food, BadFood };

@@ -343,5 +343,24 @@ describe("BadFood class", () => {
     pear.fight(target);
     expect(console.log).toHaveBeenCalledWith(expect.stringContaining("is down"));
     expect(console.log).toHaveBeenCalledWith(expect.stringContaining("but I am still up"));
-  })
+  });
+
+  test("BadFood has heal method", () => {
+    expect(typeof pear.heal).toBe("function");
+    expect(pear.heal).toBeTruthy();
+  });
+
+  test("Heal Method increases daysToSpoil by num", () => {
+    const initialDaysToSpoil = pear.daysToSpoil;
+    const amountToHeal = 7
+    pear.heal(amountToHeal)
+    expect(pear.daysToSpoil).toBe(initialDaysToSpoil + amountToHeal);
+  });
+
+  test("Heal methosd logs a message about healing", () => {
+    console.log = jest.fn()
+    pear.heal()
+    expect(console.log).toHaveBeenCalledWith(expect.stringContaining("has healed"));
+
+  });
 })
