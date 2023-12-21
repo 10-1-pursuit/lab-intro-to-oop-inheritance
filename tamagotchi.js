@@ -1,5 +1,7 @@
 // Create class below
 
+const Food = require("./food")
+
 class Tamagotchi {
     constructor(name, energy = 9, full = 8, mood = 6, sick = false, rehomed = false) {
         this.name = name
@@ -71,6 +73,19 @@ class Tamagotchi {
         }
     }
 }
+
+class BadFood extends Food{
+    constructor(name, daysToSpoil){
+        super(name, daysToSpoil = 20)
+        this.weapons = [{hitPoints: 3},{hitPoints: 4},{hitPoints: 5}]
+        if(daysToSpoil <= 0) this.fresh = false
+    }
+    prepare(){
+        console.log(`I am ${this.name} and my calories are too high to count!`)
+    }
+}
+const banana = new BadFood("banana")
+console.log(banana.prepare())
 
 // Do not edit below this line
 module.exports = Tamagotchi;
