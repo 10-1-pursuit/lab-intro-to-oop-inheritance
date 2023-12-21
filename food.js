@@ -1,9 +1,9 @@
 // Create class below
 class Food {
-    constructor(name, daysToSpoil, IsFresh = true ) {
+    constructor(name, daysToSpoil, fresh = true ) {
       this.name = name;
       this.daysToSpoil = daysToSpoil;
-      this.IsFresh = IsFresh;
+      this.fresh = fresh;
     }
     prepare(){
         console.log(`${this.name} is being prepared`);
@@ -12,7 +12,7 @@ class Food {
         if(this.fresh){
             console.log(`There are ${this.daysToSpoil} days left before ${this.name} spoils.`)
         } else {
-            console.log(`${this.name} has spoiled.`);
+            console.log(`eeewww what an old banana has spoiled.`);
         }
     }
     aDayPasses(){
@@ -24,8 +24,5 @@ class Food {
         }
     }
 }
-const iceCream = new Food('Ice Cream', 3);
-iceCream.prepare();
-iceCream.aDayPasses();
 // Do not edit below this line
 module.exports = Food;
