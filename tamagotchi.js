@@ -34,9 +34,19 @@ class Tamagotchi {
       this.sick = true;
     }
   }
+  medicate(){
+    if(this.sick === true){
+        this.full = 9
+        this.energy -= 3
+    } else{
+        console.log("refusal to take medicine")
+        this.energy--
+    }
+  }
 }
 
 const digitalPet = new Tamagotchi("Rex");
+console.log("Before Eating");
 console.log(digitalPet);
 
 // digitalPet.greet();
@@ -44,9 +54,13 @@ console.log(digitalPet);
 // digitalPet.status()
 
 digitalPet.eat();
+console.log("After Eating");
 console.log(digitalPet);
 
-digitalPet.status();
+// digitalPet.status();
+
+digitalPet.medicate()
+console.log(digitalPet);
 
 // Do not edit below this line
 module.exports = Tamagotchi;
