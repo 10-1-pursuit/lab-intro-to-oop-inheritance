@@ -1,5 +1,5 @@
 // Create class below
-class food {
+class Food {
     constructor(name, daysToSpoil, fresh = true) {
         this.name = name
         this.daysToSpoil = daysToSpoil
@@ -20,6 +20,19 @@ class food {
         this.isFresh()
     }
 }
+const food1 = new Food("bananas", 5)
+const food2 = new Food('salmon', 2)
+food1.prepare()
+console.log(' ')
+food2.prepare()
+console.log(' ')
+food1.isFresh()
+console.log(' ')
+food2.isFresh()
+console.log(' ')
+food1.aDayPasses()
+console.log(' ')
+food2.aDayPasses()
 
 // Do not edit below this line
 module.exports = Food;
