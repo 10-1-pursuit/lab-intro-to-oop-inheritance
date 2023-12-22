@@ -3,9 +3,9 @@ class Tamagotchi {
   constructor(
     name,
     sick = false,
-    energy = 9,
+    energy = 3,
     full = 8,
-    mood = 10,
+    mood = 6,
     rehomed = false
   ) {
     this.name = name;
@@ -66,25 +66,27 @@ class Tamagotchi {
 }
 
 const digitalPet = new Tamagotchi("Rex");
-console.log("Before Eating");
+console.log("Before Eat Method");
 console.log(digitalPet);
 
 // digitalPet.greet();
 
 // digitalPet.status()
 
-digitalPet.eat();
-console.log("After Eating");
-console.log(digitalPet);
+// digitalPet.eat();
+// console.log("After Eat Method");
+// console.log(digitalPet);
 
 // digitalPet.status();
 
-digitalPet.medicate();
-console.log("After Medicating");
-console.log(digitalPet);
+// digitalPet.medicate();
+// console.log("After Medicate Method");
+// console.log(digitalPet);
+
+// digitalPet.status();
 
 digitalPet.play();
-console.log("After Playing");
+console.log("After Play Method");
 console.log(digitalPet);
 
 // Do not edit below this line
