@@ -28,10 +28,33 @@ class Food {
 }
 
 const pasta = new Food("Alfredo", 5);
-// console.log(pasta)
-// pasta.prepare()
-pasta.isFresh();
+console.log(pasta);
+pasta.prepare()
+// pasta.isFresh();
 // pasta.aDayPasses();
+
+// Bonus
+class BadFood extends Food {
+  constructor(name, daysToSpoil = 20, fresh = true) {
+    super(name, daysToSpoil, fresh);
+    this.weapons = [
+      { name: "knife", hp: 5 },
+      { name: "fork", hp: 4 },
+      { name: "spoon", hp: 3 },
+    ];
+  }
+  isFresh() {
+    super.isFresh()
+  }
+  prepare(){
+    console.log(`I am ${this.name}, and with each bite, you'll savor the flavor of your defeat. Bon appétit, fool!`)
+  }
+  fight(){}
+}
+
+const badFoods = new BadFood("Pickle");
+badFoods.prepare()
+// console.log(badFoods);
 
 // Do not edit below this line
 module.exports = Food;
