@@ -69,13 +69,18 @@ class Tamagotchi {
   }
   timePasses() {
     if (this.sick === false) {
-        this.mood -= 2
-        this.full--
-        this.energy--
+      this.mood -= 2;
+      this.full--;
+      this.energy--;
     } else {
-        this.mood -= 3
-        this.full -= 2
-        this.energy -= 2
+      this.mood -= 3;
+      this.full -= 2;
+      this.energy -= 2;
+    }
+  }
+  badGuardian() {
+    if(this.energy <= 0 || this.mood <= 0 || this.full <= 0){
+        console.log(`Looks like you were a bad guardian, so ${this.name} has been rehomed`)
     }
   }
 }
@@ -112,7 +117,9 @@ console.log(digitalPet);
 // console.log("After timePasses Method");
 // console.log(digitalPet);
 
-
+// digitalPet.badGuardian();
+// console.log("After badGuardian Method");
+// console.log(digitalPet);
 
 // Do not edit below this line
 module.exports = Tamagotchi;
