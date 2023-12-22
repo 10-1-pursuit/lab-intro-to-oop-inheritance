@@ -3,7 +3,7 @@ class Tamagotchi {
   constructor(
     name,
     sick = false,
-    energy = 3,
+    energy = 9,
     full = 8,
     mood = 6,
     rehomed = false
@@ -63,6 +63,10 @@ class Tamagotchi {
       this.energy--;
     }
   }
+  sleep() {
+    this.energy += 4
+    this.full -= 3
+  }
 }
 
 const digitalPet = new Tamagotchi("Rex");
@@ -85,8 +89,12 @@ console.log(digitalPet);
 
 // digitalPet.status();
 
-digitalPet.play();
-console.log("After Play Method");
+// digitalPet.play();
+// console.log("After Play Method");
+// console.log(digitalPet);
+
+digitalPet.sleep()
+console.log("After Sleep Method");
 console.log(digitalPet);
 
 // Do not edit below this line
