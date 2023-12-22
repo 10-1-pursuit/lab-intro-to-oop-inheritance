@@ -2,7 +2,7 @@
 class Tamagotchi {
   constructor(
     name,
-    sick = false,
+    sick = true,
     energy = 9,
     full = 8,
     mood = 6,
@@ -64,13 +64,24 @@ class Tamagotchi {
     }
   }
   sleep() {
-    this.energy += 4
-    this.full -= 3
+    this.energy += 4;
+    this.full -= 3;
+  }
+  timePasses() {
+    if (this.sick === false) {
+        this.mood -= 2
+        this.full--
+        this.energy--
+    } else {
+        this.mood -= 3
+        this.full -= 2
+        this.energy -= 2
+    }
   }
 }
 
 const digitalPet = new Tamagotchi("Rex");
-console.log("Before Eat Method");
+console.log("Before Any Methods");
 console.log(digitalPet);
 
 // digitalPet.greet();
@@ -93,9 +104,15 @@ console.log(digitalPet);
 // console.log("After Play Method");
 // console.log(digitalPet);
 
-digitalPet.sleep()
-console.log("After Sleep Method");
-console.log(digitalPet);
+// digitalPet.sleep();
+// console.log("After Sleep Method");
+// console.log(digitalPet);
+
+// digitalPet.timePasses();
+// console.log("After timePasses Method");
+// console.log(digitalPet);
+
+
 
 // Do not edit below this line
 module.exports = Tamagotchi;
