@@ -3,10 +3,10 @@ class Food {
     constructor(name, daysToSpoil, fresh){
         this.name = name;
         this.daysToSpoil = daysToSpoil;
-        this.fresh = fresh
+        this.fresh = true
     }
     prepare(){
-        console.log(`${this.name} is being prepared.`)
+        console.log(`${this.name} is being prepared`)
     }
 
     isFresh() {
