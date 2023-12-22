@@ -15,10 +15,10 @@ class Food {
           this.daysToSpoil
         } day${this.daysToSpoil === 1 ? "" : "s"} left before ${
           this.name
-        } spoils`
+        } spoils.`
       );
     } else {
-      console.log(`The ${this.name} has spoiled`);
+      console.log(`${this.name} has spoiled.`);
     }
   }
   aDayPasses() {
@@ -30,8 +30,8 @@ class Food {
 const pasta = new Food("Alfredo", 5);
 // console.log(pasta)
 // pasta.prepare()
-// pasta.isFresh();
-pasta.aDayPasses();
+pasta.isFresh();
+// pasta.aDayPasses();
 
 // Do not edit below this line
 module.exports = Food;
